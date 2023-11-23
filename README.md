@@ -32,4 +32,4 @@ The hydrometric data was obtained using the package 'datateachr' <https://github
 
 # Use the App!
 
-[Link to run the app] : 🌊 The Flow Rate (<https://jmfvieira11.shinyapps.io/flowrate/>)
+Link to run the app = 🌊 The Flow Rate (<https://jmfvieira11.shinyapps.io/flowrate/>)
