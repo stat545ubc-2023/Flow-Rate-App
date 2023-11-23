@@ -26,7 +26,7 @@ The hydrometric data was obtained using the package 'datateachr' <https://github
 
 > Hayley Boyce and Jordan Bourak (2020). datateachr: Data collected to #\> use for teaching at the University of British Columbia. R package #\> version 0.2.1. <https://github.com/UBC-MDS/datateachr>
 >
-> Shiny app tutorial: Dean Attali [Shiny app tutorial](https://deanattali.com/blog/building-shiny-apps-tutorial/)
+> Shiny app tutorial: [Dean Attali [Shiny app tutorial](https://deanattali.com/blog/building-shiny-apps-tutorial/)](https://www.youtube.com/watch?v=rB4SJGyaGls)
 >
 > Work part of the course STAT 545 \@ UBC \<[stat545ubc-2023 (github.com)](https://github.com/stat545ubc-2023)\>
 
