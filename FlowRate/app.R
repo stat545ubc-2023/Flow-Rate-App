@@ -13,20 +13,24 @@ library(tidyverse)
 
 #Define data to use
 
-flow_sample <- datateachr::flow_sample #using dataset "flow_sample" from "datateach" package.
+# Using dataset "flow_sample" from "datateach" package.
 #   Hayley Boyce and Jordan Bourak (2020). datateachr: Data collected to
 #   use for teaching at the University of British Columbia. R package
 #   version 0.2.1. https://github.com/UBC-MDS/datateachr
-
-
-
 # Instead another dataset could be used with:
 # read.csv("new_dataset")
 
-m_choices <- flow_sample %>% #created to facilitate the choice list for the following input ("id_month")
-  arrange(month) %>%
-  drop_na(month) %>%
-  pull(month)
+# tidying the data set
+month_mapping <- c("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
+
+n_flow_sample <- flow_sample %>%
+  mutate(month_name = month_mapping[month]) %>%
+  select(-month) 
+
+#created to facilitate the choice list for the following input ("id_month")
+m_choices <- n_flow_sample %>% 
+  drop_na(month_name) %>%
+  pull(month_name)
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -44,8 +48,8 @@ ui <- fluidPage(
             # added a options for users to select the year range to observe. May be useful to users to look at a specific period of time.
             sliderInput("id_year",  
                         "Select a year range:",
-                        min = min(flow_sample$year),
-                        max = max(flow_sample$year),
+                        min = min(n_flow_sample$year),
+                        max = max(n_flow_sample$year),
                         value = c(1915, 1930)),
             
             # added a options for users to select the flow extreme type. They can look at one, or both or none(🤷️) of the flow extreme types.
@@ -72,7 +76,7 @@ ui <- fluidPage(
 server <- function(input, output){
 
   flow_filtered <- reactive({
-    flow_sample_filtered <- flow_sample %>%
+    flow_sample_filtered <- n_flow_sample %>%
       select(-station_id) %>%
       filter(year >= input$id_year[1],
              year <= input$id_year[2])
@@ -88,7 +92,7 @@ server <- function(input, output){
     
     if (input$id_month != "All"){ 
       flow_sample_filtered <- flow_sample_filtered %>%
-      filter(month == input$id_month)
+      filter(month_name == input$id_month)
     }
       
     

@@ -5,7 +5,7 @@ account: jmfvieira11
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 10609068
-bundleId: 7960824
+bundleId: 7963301
 url: https://jmfvieira11.shinyapps.io/flowrate/
 version: 1
 asMultiple: FALSE
